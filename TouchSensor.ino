@@ -23,3 +23,5 @@ void loop()
   digitalWrite(out, state);
   p = r;
 }
+
+//https://create.arduino.cc/projecthub/CodeRocks/touch-sensor-01d36e?ref=search&ref_id=touch%20sensor&offset=0
