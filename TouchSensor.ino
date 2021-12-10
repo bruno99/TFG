@@ -10,6 +10,7 @@ void setup()
   pinMode(in, INPUT);
   pinMode(out, OUTPUT);
 }
+//¿podré meter cada sensor en un array? para llamar a los sensores sensor[0] a sensor [9] y quizás hacer algún bucle
 void loop()
 {
   r = digitalRead(in);
