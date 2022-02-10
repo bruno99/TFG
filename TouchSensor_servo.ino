@@ -74,17 +74,21 @@ void loop() {
       Serial.print("electrode ");
       Serial.print(i, DEC);
       Serial.println(" was just touched");
-      // change angle of servo motor
-    angle = angle + 360;
+    if(angle == 0)
+      angle = 180;
+    else
+    if(angle == 180)
+      angle = 0;
+
     // control servo motor arccoding to the angle
     servo.write(angle);
+  }
     } else if (MPR121.isNewRelease(i)) {
 
       Serial.print("electrode ");
       Serial.print(i, DEC);
       Serial.println(" was just released");
-// change angle of servo motor
-angle = angle - 360;
+
 
     // control servo motor arccoding to the angle
     servo.write(angle);
