@@ -68,14 +68,14 @@ void loop() {
   for (int i = 0; i < 12; i++) {
     if (MPR121.isNewTouch(i)) {
       
-      Serial.print("electrode ");
+      Serial.print("electrodo ");
       Serial.print(i, DEC);
-      Serial.println(" was just touched");
+      Serial.println(" tocado");
 
     } else if (MPR121.isNewRelease(i)) {
-      Serial.print("electrode ");
+      Serial.print("electrodo ");
       Serial.print(i, DEC);
-      Serial.println(" was just released");
+      Serial.println(" soltado");
 
     }
   }
