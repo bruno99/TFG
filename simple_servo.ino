@@ -31,8 +31,6 @@ void loop() {
     else
     if(angle == 180)
       angle = 0;
-
-    // control servo motor arccoding to the angle
     servo.write(angle);
   }
 
