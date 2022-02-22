@@ -71,9 +71,9 @@ void loop() {
   for (int i = 0; i < 12; i++) {
     if (MPR121.isNewTouch(i)) {
 
-      Serial.print("electrode ");
+      Serial.print("electrodo ");
       Serial.print(i, DEC);
-      Serial.println(" was just touched");
+      Serial.println(" tocado");
     if(angle == 0)
       angle = 180;
     else
@@ -83,12 +83,10 @@ void loop() {
   }
     } else if (MPR121.isNewRelease(i)) {
 
-      Serial.print("electrode ");
+      Serial.print("electrodo ");
       Serial.print(i, DEC);
-      Serial.println(" was just released");
+      Serial.println(" soltado");
 
-
-    // control servo motor arccoding to the angle
     servo.write(angle);
     }
   }
