@@ -3,7 +3,6 @@
 #include <MPR121_Datastream.h>
 #include <Wire.h>
 
-// touch constants
 const uint32_t BAUD_RATE = 115200;
 const uint8_t MPR121_ADDR = 0x5a;  // 0x5a porque es la que hemos escaneado de I2C
 const uint8_t MPR121_INT = 4;  // pin 4 del arduino
