@@ -62,18 +62,15 @@ void setup() {
   MPR121.autoSetElectrodes();  // autoset all electrode settings
   digitalWrite(LED_BUILTIN, LOW);
 
-   // Declaramos todos los pines como salidas
- //pinMode (ENA, OUTPUT);
+
  pinMode (ENB, OUTPUT);
- //pinMode (IN1, OUTPUT);
- //pinMode (IN2, OUTPUT);
  pinMode (IN3, OUTPUT);
  pinMode (IN4, OUTPUT);
 }
 void Adelante ()
 {
 
- //Direccion motor B
+
  digitalWrite (IN3, HIGH);
  digitalWrite (IN4, LOW);
  analogWrite (ENB, 255); //Velocidad motor B
@@ -81,12 +78,14 @@ void Adelante ()
 void Parar ()
 {
 
- //Direccion motor B
  digitalWrite (IN3, LOW);
  digitalWrite (IN4, LOW);
- analogWrite (ENB, 0); //Velocidad motor A
+ analogWrite (ENB, 0); //
 }
 void loop() {
+  //Preparamos la salida para que el motor gire en un sentido
+  digitalWrite (IN3, HIGH);
+  digitalWrite (IN4, LOW);
   MPR121.updateAll();
 
   for (int i = 0; i < 12; i++) {
@@ -109,5 +108,3 @@ void loop() {
     MPR121_Datastream.update();
   }
 }
-
-
