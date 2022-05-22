@@ -103,7 +103,7 @@ void loop() {
       analogWrite (ENB, 0);;
     }
     inputString = "";
-  
+  }
   //Preparamos la salida para que el motor gire en un sentido
 
 
@@ -125,7 +125,6 @@ void loop() {
 
   if (MPR121_DATASTREAM_ENABLE) {
     MPR121_Datastream.update();
-  }
   }
   
 }
