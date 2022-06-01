@@ -12,7 +12,7 @@ int IN4 = 6;
 // MPR121 datastream behaviour constants
 const bool MPR121_DATASTREAM_ENABLE = false;
 
-char data;
+
 String inputString="";
 void setup() {
   Serial.begin(BAUD_RATE);
@@ -88,21 +88,18 @@ void loop() {
    digitalWrite (IN3, HIGH);
   digitalWrite (IN4, LOW);
   MPR121.updateAll();
-  if(Serial.available()){
-  while(Serial.available())
-    {
-      char inChar = (char)Serial.read(); //read the input
-      inputString += inChar;        //make a string of the characters coming on serial
-    }
-    Serial.println(inputString);
-    while (Serial.available() > 0)  
-    { data = Serial.read() ; }      // clear the serial buffer
-    if(inputString == "+"){         //in case of 'a' turn the LED on
-      analogWrite (ENB, 255);  
-    }else if(inputString == "-"){   //incase of 'b' turn the LED off
-      analogWrite (ENB, 0);;
-    }
-    inputString = "";
+  
+ char data;
+ if(Serial.available()){
+   data = Serial.read();  
+  if(data == 'b'){ 
+    Adelante();
+    Serial.println("mas velocidad");
+  }
+  else if(data == 'a'){  
+    Parar ();
+    Serial.println("menos velocidad");
+  }
   }
   //Preparamos la salida para que el motor gire en un sentido
 
