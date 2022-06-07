@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/velocidad"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -14,25 +15,28 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="33dp"
         android:background="@color/white"
+        android:contentDescription="@string/strcontent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/Syncro"
         app:srcCompat="@android:drawable/ic_menu_manage"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/Syncro"
         android:layout_width="304dp"
         android:layout_height="127dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="54dp"
         android:layout_marginBottom="449dp"
+        android:contentDescription="@string/strcontent"
         app:layout_constraintBottom_toTopOf="@+id/setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/syncro" />
+        app:srcCompat="@drawable/syncro"
+        tools:ignore="ImageContrastCheck" />
 
     <ImageButton
         android:id="@+id/logoutBtn"
@@ -43,10 +47,11 @@
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="33dp"
         android:background="@color/white"
+        android:contentDescription="@string/strcontent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/setting"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/Syncro"
         app:srcCompat="@android:drawable/btn_dialog"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -78,4 +83,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/setting" />
+
+    <ImageButton
+        android:id="@+id/btnLess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="150dp"
+        android:background="#07FFFFFF"
+        android:contentDescription="@string/strcontent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMore"
+        app:srcCompat="@drawable/ic_baseline_remove_circle_24"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/btnMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/strcontent"
+        app:layout_constraintBottom_toTopOf="@+id/btnLess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Syncro"
+        app:srcCompat="@drawable/ic_baseline_add_circle_24"
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="66dp"
+        android:background="#00FFFFFF"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/setting"
+        app:layout_constraintStart_toEndOf="@+id/logoutBtn"
+        app:layout_constraintTop_toBottomOf="@+id/btnLess"
+        app:srcCompat="@drawable/ic_baseline_bluetooth_disabled_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

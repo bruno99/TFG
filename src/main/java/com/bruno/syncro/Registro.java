@@ -31,9 +31,12 @@ public class Registro extends AppCompatActivity {
     Button mRegisterBtn;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
-    //FirebaseFirestore fStore;
+    ProgressBar progressBar;
     String userID;
 
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,17 +46,23 @@ public class Registro extends AppCompatActivity {
         mPassword   = findViewById(R.id.Passw);
         mRegisterBtn= findViewById(R.id.RegisterBtn);
         mLoginBtn   = findViewById(R.id.Login);
-
+        progressBar = findViewById(R.id.progressBar);
         fAuth = FirebaseAuth.getInstance();
         //fStore = FirebaseFirestore.getInstance();
+        /**
+         * si el usuario ya está registrado le mandamos a la página principal
+         */
 
-        //si el usuario ya está registrado le mandamos a la página principal
          if(fAuth.getCurrentUser() != null){
              startActivity(new Intent(getApplicationContext(),MainActivity.class));
              finish();
          }
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Registers new user in Firebase if data is correct
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 final String email = mEmail.getText().toString().trim();
@@ -76,30 +85,39 @@ public class Registro extends AppCompatActivity {
                     return;
                 }
 
-                //Registrar al usuario en Firebase
+
+                progressBar.setVisibility(View.VISIBLE);
 
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    /**
+                     * Checks if user is registered and sends to main activity
+                     * If user is not created sends error message
+                     * @param task
+                     */
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            //Usuario creado
-                            Toast.makeText(Registro.this, "User Created.", Toast.LENGTH_SHORT).show();
-                            //Si se registra correctamente se le manda a la actividad principal
+                            Toast.makeText(Registro.this, "Usuario registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                        //Registro fallado
                         }else {
-                            Toast.makeText(Registro.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Registro.this, "Error en el registro" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
                         }
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
             }
         });
-         //ya tienes cuenta
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Goes to login activity if you already have an account
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),Login.class));
             }
+
         });
     }
 }

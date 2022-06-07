@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Syncro</string>
+    <string name="strcontent">Imagen</string>
+
 </resources>
