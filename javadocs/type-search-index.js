@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.bruno.syncro","l":"Ajustes"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.bruno.syncro","l":"ExampleInstrumentedTest"},{"p":"com.bruno.syncro","l":"ExampleUnitTest"},{"p":"com.bruno.syncro","l":"Login"},{"p":"com.bruno.syncro","l":"MainActivity"},{"p":"com.bruno.syncro","l":"Registro"}]
